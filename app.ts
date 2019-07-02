@@ -19,14 +19,21 @@ const botToken: string = 'telegram bot token here';
 const bot: any = new TelegramBot (botToken, {polling: true});
 
 // Return using mode to user
-bot.onText(/\/start/, (msg: any, match: any): void => {
-  const chatId: number  = msg.chat.id;
-  const opts: object = {reply_to_message_id: msg.message_id}
-  bot.sendMessage(chatId, 'Modo de uso: /wiki idioma termo_a_buscar', opts);
+bot.onText(/\/start/, (msg: any, match: any) => {
+    const chatId = msg.chat.id;
+    const opts = { reply_to_message_id: msg.message_id };
+    bot.sendMessage(chatId, "I'm here", opts);
+});
+
+//help
+bot.onText(/\/help/, (msg: any, match: any) => {
+  const chatId: number = msg.chat.id;
+  const opts = { reply_to_message_id: msg.message_id};
+  bot.sendMessage(chatId, 'Modo de usar: /wiki idioma termo_a_pesquisar' ,opts)
 });
 
 // Search 
-bot.onText(/\/wiki (.+ )(.+)/, (msg: any, match: any) => {
+bot.onText(/\/wiki (.+) (.+)/, (msg: any, match: any) => {
   const chatId: number  = msg.chat.id;
   const opts = {reply_to_message_id: msg.message_id}
   const input: any = {
