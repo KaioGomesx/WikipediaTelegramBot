@@ -22,16 +22,16 @@ const bot: any = new TelegramBot (botToken, {polling: true});
 bot.onText(/\/start/, (msg: any, match: any): void => {
   const chatId: number  = msg.chat.id;
   const opts: object = {reply_to_message_id: msg.message_id}
-  bot.sendMessage(chatId, 'Modo de uso: /wiki TERMO_A_BUSCAR', opts);
+  bot.sendMessage(chatId, 'Modo de uso: /wiki idioma termo_a_buscar', opts);
 });
 
 // Search 
-bot.onText(/\/wiki (.+)/, (msg: any, match: any) => {
+bot.onText(/\/wiki (.+ )(.+)/, (msg: any, match: any) => {
   const chatId: number  = msg.chat.id;
   const opts = {reply_to_message_id: msg.message_id}
   const input: any = {
-    "articleName": match[1],
-    "lang": 'pt'
+    "articleName": match[2],
+    "lang": match[1]
   };
 
   algorithmia.client(algorithmiaToken)
