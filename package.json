@@ -4,7 +4,7 @@
   "description": "Telegram wikipedia search bot",
   "main": "dist/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/app.js"
   },
   "author": "R1S3",
   "license": "ISC",
