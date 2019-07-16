@@ -1,0 +1,15 @@
+{
+  "name": "telegram_wikipedia_bot",
+  "version": "0.0.2",
+  "description": "Telegram wikipedia search bot",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "node dist/app.js",
+  },
+  "author": "R1S3",
+  "license": "ISC",
+  "dependencies": {
+    "algorithmia": "^0.3.10",
+    "node-telegram-bot-api": "^0.30.0"
+  }
+}
